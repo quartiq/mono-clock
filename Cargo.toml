@@ -10,4 +10,3 @@ documentation = "https://docs.rs/mono-clock/"
 
 [dependencies]
 embedded-time = "0.12.1"
-fugit = "0.3.3"
