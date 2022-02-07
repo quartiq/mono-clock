@@ -9,9 +9,9 @@ pub use embedded_time;
 use embedded_time::{clock::Error, fraction::Fraction, Clock, Instant, TimeInt};
 
 #[derive(Copy, Clone, Debug)]
-pub struct MonoClock<T: Copy, const HZ: u32>(fn() -> T);
+pub struct MonoClock<T, const HZ: u32>(fn() -> T);
 
-impl<T: Copy, const HZ: u32> MonoClock<T, HZ> {
+impl<T, const HZ: u32> MonoClock<T, HZ> {
     ///! Create a new `MonoClock` using e.g. RTIC's `monotonics::now()`.
     ///!
     ///! Args:
