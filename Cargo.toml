@@ -1,0 +1,13 @@
+[package]
+name = "mono-clock"
+version = "0.1.0"
+edition = "2021"
+description = "Embedded-time Clock implementation using RTIC Monotonic"
+license = "MIT OR Apache-2.0"
+documentation = "https://docs.rs/mono-clock/"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+embedded-time = "0.12.1"
+fugit = "0.3.3"
