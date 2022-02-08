@@ -18,8 +18,14 @@ impl<T, const HZ: u32> MonoClock<T, HZ> {
     ///! * now: a closure that returns the current ticks
     ///!
     ///! ```
-    ///! use mono_clock::MonoClock;
-    ///! let clock = MonoClock::new(|| monotonics::now());
+    ///! // In your `app` `init()`, set up a `Monotonic` as usual, e.g.:
+    ///! use mono_clock::MonoClock, systick_monotonic::Systick;
+    ///! const HZ: u32 = 1_000;
+    ///! let sysclk = 400_000_000u32;
+    ///! let mono = Systick::<HZ>::new(c.core.SYST, sysclk);
+    ///! // Then build a `Clock` that is `Copy` and can be passed
+    ///! // around by value or reference:
+    ///! let clock = MonoClock::<u32, HZ>::new(|| monotonics::now());
     ///! ```
     pub fn new(now: fn() -> T) -> Self {
         Self(now)
